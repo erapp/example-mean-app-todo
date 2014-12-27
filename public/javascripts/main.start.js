@@ -1,6 +1,6 @@
 angular.module('todo', ['ngRoute', 'ngResource'])
 .factory('Todos', ['$resource', function($resource){
-	return $resource('/todos/:id', null, {
+	return $resource('/api/todos/:id', null, {
 		'update': {method:'PUT'}
 	});
 }])
