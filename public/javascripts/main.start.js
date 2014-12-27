@@ -43,7 +43,8 @@ angular.module('todo', ['ngRoute', 'ngResource'])
 	}
 }])
 .controller('TodoDetailCtrl', ['$scope', '$routeParams', 'Todos', '$location', function ($scope, $routeParams, Todos, $location) {
-    $scope.todo = Todos.get({id: $routeParams.id});
+    console.log("Reached Detailed Controller.");
+	$scope.todo = Todos.get({id: $routeParams.id});
 	
 	$scope.update = function(){
 		Todos.update({id: $scope.todo._id}, $scope.todo, function(){
@@ -57,15 +58,15 @@ angular.module('todo', ['ngRoute', 'ngResource'])
 		});
 	}
 }])
-.config(['$routeProvider', function($routeProvider){
+.config(['$routeProvider', '$locationProvider', function($routeProvider, $locationProvider){
+	$locationProvider.html5Mode(true);
 	$routeProvider
 		.when('/', {
-			templateUrl: '/todos.html',
+			templateUrl: 'todos.html',
 			controller: 'TodoCtrl'
 		})
-		
 		.when('/:id', {
-			tempalteUrl: '/todoDetails.html',
+			tempalteUrl: 'todoDetails.html',
 			controller: 'TodoDetailCtrl'
 		});
 }]);
