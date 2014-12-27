@@ -6,11 +6,12 @@ http://adrianmejia.com/blog/2014/09/28/angularjs-tutorial-for-beginners-with-nod
 
 Run App:
 > npm install
+
 > npm start
 
-or
+or if {nodemon} is installed:
 
-> nodemon if installed
+> nodemon 
 
 Test API:
 > mocha tests/api.specs.js
